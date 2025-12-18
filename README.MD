@@ -1,5 +1,6 @@
 Willy wonka factory data analysis with SQL by BCG 
 (Blanca, Jussara and Rodrigo)
+
 🍫 Wonka Chocolate Factory – Revenue Optimization Analysis
 
 📝 Project Overview
