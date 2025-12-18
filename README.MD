@@ -1,6 +1,6 @@
 Willy wonka factory data analysis with SQL by BCG 
 (Blanca, Jussara and Rodrigo)
-
+🍫 Wonka Chocolate Factory – Revenue Optimization Analysis
 📝 Project Overview
 This project analyzes Wonka Chocolate Factory’s sales, cost, factory performance, and customer purchasing behavior to identify practical opportunities to increase revenue and profitability.
 By examining product-level profitability, factory and location efficiency, and customer loyalty patterns, the analysis aims to answer a core business question:
