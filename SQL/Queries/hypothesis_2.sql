@@ -1,6 +1,10 @@
 USE wonka_db;
 
 -- Analysis of Company Sales / Profit by Factory
+-- SABINA COMMENT: Really liked the analysis & conclusions overall!
+-- ... HOWEVER I don't see any time period mentioned anywhere :eyes: are the millions for this year, last year, 6 months, etc.? This is very important, always think about the period!
+
+
 
 -- Total profit & sales by factory:
 SELECT
@@ -53,6 +57,11 @@ ORDER BY profit_margin DESC;
     -- or closure.
 -- Is revenue concentration happening in one factory?
 	-- No, revenue is dissipated through most factories ranging between 50% to 70% which is a healthy range. 
+    -- SABINA COMMENT: 50-70% is an incredibly healthy profit, very much impossible to achieve, really, in the CPG (Consumer Packaged Goods) industry. 
+    -- This is not something you'd know, of course, but typically a profit of 25-30% would be considered high here. 
+    -- Usually it depends on whether these are premium/luxury products (which they're not, based on unit price) but in this case it's probs because it's not real data. 
+    -- Actually good for me to know to adjust the dataset in the future.
+
     -- From the 5 Factories, only one is in negative shape.
 
 -- What type of product sells more at each factory?
@@ -79,6 +88,7 @@ ORDER BY f.factory_name, total_units_sold DESC;
 -- Sugar Shack produces a wide variety of products but at very low unit volumes. This suggests 
 -- small-batch or experimental production, which may support product diversification but does not 
 -- significantly contribute to total sales volume.
+-- SABINA COMMENT: Good hypothesis - would also consider whether the factory is new or perhaps very far away from the customer base, which you could check in your data!
 
 -- The Other Factory relies almost entirely on a single product (Kazookles), creating a potential 
 -- operational risk. Without diversification or improved profitability, this factory may require 

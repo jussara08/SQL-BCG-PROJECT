@@ -1,3 +1,5 @@
+-- SABINA COMMENT: Would remove the queries related to the schema,
+-- as you already have them in the schema.sql
 CREATE TABLE `customers` (
   `customer_id` int PRIMARY KEY,
   `country_region` varchar(255),
@@ -107,7 +109,8 @@ MODIFY cost DECIMAL(10,2);
 
 -- SALES
 
-
+-- SABINA COMMENT: Would also move the cleaning to a different SQL script
+-- mainly to help with organizing, readibility.
 INSERT INTO sales (
     order_date, 
     ship_date, 
@@ -234,6 +237,8 @@ JOIN locations l
   AND w.`Country/Region` = l.country_region;
 
 -- factory profit summary
+-- SABINA COMMENT: Overall, the analysis follows the right direction, but it lacks comments from you, the analyst! 
+-- How am I, a peasant, supposed to understand these numbers without my loyal analyst??? (more specific, big comments below)
 CREATE VIEW factory_profit_summary AS
 SELECT 
     Factory,
@@ -274,6 +279,20 @@ SELECT
 FROM wonka_choc_factory_clean
 GROUP BY `Product Name`
 ORDER BY total_profit DESC;
+-- SABINA COMMENT: Need to have some conclusions based on these numbers :) (Apply this feedback everywhere else!)
+-- For example:
+    -- ANALYSIS
+    -- We notice that by far the most sold products (top 5) are all Wonka Bar products, exceeding $16K in profits over XX time period.
+    -- The next popular product is the Lickable Wallpaper, which falls far behind the Wonka bars, potentially because of less demand / higher price point / recent addition to the inventory.
+    -- All remaining products have <$500 in overall profit, thus not being big drivers of the overall profit. 
+    -- RECOMMENDATIONS
+    -- Diversify Wonka bars to ensure they keep up with consumer trends.
+    -- Potentially create limited sales of less popular products that are highly profitable, e.g. Lickable Wallpaper.
+-- P.S. Unfortunately having the Total Gross Product per product doesn't tell you which products are most profitable.
+-- Why? Because the Total Gross Profit also depends on HOW MANY ITEMS are sold. 
+-- To find out what products are the most profitable, you need to look at Gross Margin (Gross Profit / Sales), which is a %. Or you can look at the Profit/Unit, like you did below. Seems I was right about the wallpaper being at a higher price point (and thus higher profit)
+-- Technically, Wonka Bars could be the least profitable products (1% margin) but the most sold (16K sold every year).
+
 -- 'Wonka Bar -Scrumdiddlyumptious','18907.5'
 -- 'Wonka Bar - Triple Dazzle Caramel','18350.49999999999'
 -- 'Wonka Bar - Milk Chocolate','16877.88999999987'
@@ -313,6 +332,8 @@ ORDER BY profit_per_unit DESC;
 
 
 -- Products where cost is higher than profit
+-- SABINA COMMENT: This is not something that analysts usually look at, because it's very few industries where the Gross Margin is >50% (i.e. profit > cost)
+-- You would look at the Gross Profit Margin (%) instead.
 SELECT 
     `Product Name`,
     SUM(Cost) AS total_cost,
